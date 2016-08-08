@@ -1,5 +1,16 @@
+var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
+
+/*var Botkit = require('botkit');
+var controller = Botkit.slackbot();
+var bot = controller.spawn({
+	token: "my_slack_bot_token"
+})
+*/
+
+
+
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -11,6 +22,10 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
   response.render('pages/index');
+});
+
+app.get('/cool', function(request, response) {
+	response.send(cool());
 });
 
 app.listen(app.get('port'), function() {
